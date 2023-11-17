@@ -6,6 +6,24 @@ const tdbankAPI = axios.create({
 function api_docs_schema_retrieve(payload) {
   return tdbankAPI.get(`/api-docs/schema/`, { params: { lang: payload.lang } })
 }
+function api_v1_entity_list(payload) {
+  return tdbankAPI.get(`/api/v1/entity/`)
+}
+function api_v1_entity_create(payload) {
+  return tdbankAPI.post(`/api/v1/entity/`, payload)
+}
+function api_v1_entity_retrieve(payload) {
+  return tdbankAPI.get(`/api/v1/entity/${payload.id}/`)
+}
+function api_v1_entity_update(payload) {
+  return tdbankAPI.put(`/api/v1/entity/${payload.id}/`, payload)
+}
+function api_v1_entity_partial_update(payload) {
+  return tdbankAPI.patch(`/api/v1/entity/${payload.id}/`, payload)
+}
+function api_v1_entity_destroy(payload) {
+  return tdbankAPI.delete(`/api/v1/entity/${payload.id}/`)
+}
 function api_v1_login_create(payload) {
   return tdbankAPI.post(`/api/v1/login/`, payload)
 }
@@ -47,6 +65,12 @@ function rest_auth_user_partial_update(payload) {
 }
 export const apiService = {
   api_docs_schema_retrieve,
+  api_v1_entity_list,
+  api_v1_entity_create,
+  api_v1_entity_retrieve,
+  api_v1_entity_update,
+  api_v1_entity_partial_update,
+  api_v1_entity_destroy,
   api_v1_login_create,
   api_v1_signup_create,
   rest_auth_login_create,
