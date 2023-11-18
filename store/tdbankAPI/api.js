@@ -27,6 +27,24 @@ function api_v1_entity_destroy(payload) {
 function api_v1_login_create(payload) {
   return tdbankAPI.post(`/api/v1/login/`, payload)
 }
+function api_v1_person_list(payload) {
+  return tdbankAPI.get(`/api/v1/person/`)
+}
+function api_v1_person_create(payload) {
+  return tdbankAPI.post(`/api/v1/person/`, payload)
+}
+function api_v1_person_retrieve(payload) {
+  return tdbankAPI.get(`/api/v1/person/${payload.id}/`)
+}
+function api_v1_person_update(payload) {
+  return tdbankAPI.put(`/api/v1/person/${payload.id}/`, payload)
+}
+function api_v1_person_partial_update(payload) {
+  return tdbankAPI.patch(`/api/v1/person/${payload.id}/`, payload)
+}
+function api_v1_person_destroy(payload) {
+  return tdbankAPI.delete(`/api/v1/person/${payload.id}/`)
+}
 function api_v1_signup_create(payload) {
   return tdbankAPI.post(`/api/v1/signup/`, payload)
 }
@@ -72,6 +90,12 @@ export const apiService = {
   api_v1_entity_partial_update,
   api_v1_entity_destroy,
   api_v1_login_create,
+  api_v1_person_list,
+  api_v1_person_create,
+  api_v1_person_retrieve,
+  api_v1_person_update,
+  api_v1_person_partial_update,
+  api_v1_person_destroy,
   api_v1_signup_create,
   rest_auth_login_create,
   rest_auth_logout_create,
